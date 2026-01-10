@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', system-ui, sans-serif;
+  background: #151517;
+  min-height: 100vh;
+  color: #f2ebe7;
+}
+
+.font-display {
+  font-family: 'Clash Display', system-ui, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e21;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a3a40;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a4a52;
+}
+
+/* Glass morphism card */
+@layer components {
+  .glass-card {
+    @apply bg-[#1e1e21]/90 backdrop-blur-sm border border-[#2a2a2e] rounded-2xl;
+  }
+  
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:border-primary-500/30 hover:shadow-lg hover:shadow-primary-500/5;
+  }
+
+  .btn-primary {
+    @apply bg-primary-500 text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:bg-primary-600 hover:shadow-lg hover:shadow-primary-500/20 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-warm-300 font-medium px-6 py-3 rounded-xl border border-[#3a3a40] transition-all duration-300 hover:bg-[#252528] hover:border-[#4a4a52] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply text-warm-400 font-medium px-4 py-2 rounded-lg transition-all duration-200 hover:bg-[#252528] hover:text-warm-200;
+  }
+
+  .input-field {
+    @apply w-full bg-[#1a1a1c] border border-[#2a2a2e] rounded-xl px-4 py-3 text-warm-100 placeholder-warm-400/50 focus:outline-none focus:border-accent-400/50 focus:ring-1 focus:ring-accent-400/20 transition-all duration-200;
+  }
+
+  .label-text {
+    @apply block text-sm font-medium text-warm-300 mb-2 tracking-wide;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-wide;
+  }
+
+  .badge-primary {
+    @apply badge bg-primary-500/15 text-primary-300 border border-primary-500/20;
+  }
+
+  .badge-success {
+    @apply badge bg-emerald-500/15 text-emerald-400 border border-emerald-500/20;
+  }
+
+  .badge-warning {
+    @apply badge bg-amber-500/15 text-amber-400 border border-amber-500/20;
+  }
+
+  .badge-danger {
+    @apply badge bg-rose-500/15 text-rose-400 border border-rose-500/20;
+  }
+
+  .badge-neutral {
+    @apply badge bg-[#2a2a2e] text-warm-300 border border-[#3a3a40];
+  }
+
+  .skill-tag {
+    @apply inline-flex items-center px-3 py-1.5 bg-[#252528] text-warm-300 rounded-lg text-sm border border-[#3a3a40] transition-all duration-200;
+  }
+
+  .skill-tag-matched {
+    @apply skill-tag bg-accent-500/15 text-accent-300 border-accent-500/25;
+  }
+
+  .match-score {
+    @apply inline-flex items-center justify-center w-14 h-14 rounded-full font-bold text-lg;
+  }
+
+  .match-score-high {
+    @apply match-score bg-emerald-500/15 text-emerald-400 border-2 border-emerald-500/30;
+  }
+
+  .match-score-medium {
+    @apply match-score bg-amber-500/15 text-amber-400 border-2 border-amber-500/30;
+  }
+
+  .match-score-low {
+    @apply match-score bg-[#2a2a2e] text-warm-400 border-2 border-[#3a3a40];
+  }
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-accent-400 to-primary-400 bg-clip-text text-transparent;
+}
+
+/* Subtle animated background */
+.animated-bg {
+  background: #151517;
+  position: relative;
+}
+
+.animated-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at 20% 20%, rgba(132, 98, 103, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 80%, rgba(216, 154, 158, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Stagger animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.15s; }
+.stagger-3 { animation-delay: 0.2s; }
+.stagger-4 { animation-delay: 0.25s; }
+.stagger-5 { animation-delay: 0.3s; }
+
+/* Typography refinements */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
+}
